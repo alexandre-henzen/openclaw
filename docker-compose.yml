@@ -1,6 +1,9 @@
 services:
   openclaw-gateway:
-    image: ${OPENCLAW_IMAGE:-ghcr.io/openclaw/openclaw:2026.4.12-slim}
+    build:
+      context: .
+      dockerfile: Dockerfile.local
+    image: openclaw-local
     container_name: openclaw-gateway
     restart: unless-stopped
     environment:
